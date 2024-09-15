@@ -1,0 +1,21 @@
+version: '3.8'
+services:
+  db:
+    image: postgres:15
+    container_name: my_journey_db
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: my_journey_db
+    ports:
+      - "5433:5432" # Map port 5432 in the container to 5433 on the host
+
+networks:
+  my_journey_network:
+
+volumes:
+  postgres_data:
+
+
