@@ -32,7 +32,13 @@ gem 'pg'
 
 gem 'devise'
 gem 'devise-jwt'
+gem 'jsonapi-serializer'
+gem 'pundit'
 gem 'rack-cors'
+
+gem 'pry'
+gem 'pry-rails'
+gem 'warden-jwt_auth'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

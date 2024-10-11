@@ -1,0 +1,89 @@
+require:
+  - rubocop-performance
+  - rubocop-rails
+  - rubocop-rspec
+  - rubocop-factory_bot
+
+Rails/UnknownEnv:
+  Environments:
+    - production
+    - development
+
+AllCops:
+  NewCops: enable
+  SuggestExtensions: false
+  Exclude:
+    - 'vendor/**/*'
+    - 'db/schema.rb'
+    - 'db/data_schema.rb'
+    - 'public/**/*'
+    - 'log/**/*'
+    - 'bin/**/*'
+    - 'outdated.rb'
+    - 'db/**/*'
+
+Rails/BulkChangeTable:
+  Enabled: false
+Rails/ReversibleMigration:
+  Enabled: false
+Rails/EnvironmentVariableAccess:
+  AllowReads: true
+Rails/SkipsModelValidations:
+  Exclude:
+    - 'db/data_migrate/*'
+Rails/Output:
+  Exclude:
+    - 'db/data_migrate/*'
+    - 'db/migrate/*'
+    - 'db/seeds.rb'
+Metrics/MethodLength:
+  Max: 80
+Metrics/ClassLength:
+  Max: 650
+Metrics/ModuleLength:
+  Max: 200
+Metrics/BlockLength:
+  Max: 100
+  Exclude:
+    - 'config/routes.rb'
+    - 'config/environments/*'
+    - 'Rakefile'
+    - '**/*.rake'
+    - 'spec/**/*.rb'
+Metrics/AbcSize:
+  Exclude:
+    - 'db/**/*.*'
+    - 'app/queries/**/*'
+
+Layout/LineLength:
+  Max: 120
+Layout/MultilineMethodCallIndentation:
+  EnforcedStyle: 'indented'
+
+Style/RegexpLiteral:
+  Enabled: false
+Style/FrozenStringLiteralComment:
+  Enabled: false
+Style/Documentation:
+  Enabled: false
+
+Lint/AmbiguousBlockAssociation:
+  Exclude:
+    - 'spec/**/*'
+Lint/RedundantSplatExpansion:
+  Enabled: false
+Lint/MissingSuper:
+  Enabled: false
+Rails/I18nLocaleTexts:
+  Enabled: false
+
+RSpec/NestedGroups:
+  Max: 10
+RSpec/MultipleMemoizedHelpers:
+  Enabled: false
+RSpec/ImplicitSubject:
+  EnforcedStyle: 'single_statement_only'
+RSpec/IndexedLet:
+  Enabled: false
+RSpec/AnyInstance:
+  Enabled: false
