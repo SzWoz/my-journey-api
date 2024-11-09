@@ -6,6 +6,8 @@ class User < ApplicationRecord
 
   before_create :set_jti
 
+  has_many :vehicles, dependent: :destroy
+
   private
 
   def set_jti

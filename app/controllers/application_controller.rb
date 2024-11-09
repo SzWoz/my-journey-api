@@ -11,15 +11,17 @@ class ApplicationController < ActionController::Base
   private
 
   def authenticate_user_from_token
-    token = request.headers['Authorization']&.split(' ')&.last
+    token = request.headers['Authorization']&.split()&.last
     return nil unless token
 
-    decoded_token = JWT.decode(token, Rails.application.credentials.fetch(:secret_key_base), true,
-                               { algorithm: 'HS256' })
-
-    user_id = decoded_token[0]['sub'].to_i
-    User.find_by(id: user_id)
-  rescue JWT::DecodeError
-    nil
+    begin
+      decoded_token = JWT.decode(token, Rails.application.credentials.fetch(:secret_key_base), true,
+                                 { algorithm: 'HS256' })
+      user_id = decoded_token[0]['sub'].to_i
+      User.find_by(id: user_id)
+    rescue JWT::DecodeError => e
+      Rails.logger.error "JWT Decode Error: #{e.message}"
+      nil
+    end
   end
 end

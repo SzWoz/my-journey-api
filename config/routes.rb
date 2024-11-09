@@ -10,6 +10,6 @@ Rails.application.routes.draw do
                      }
   scope module: 'api', defaults: { format: :json } do
     resource :profile, only: [:show]
-    resources :vehicles, only: [:index]
+    resources :vehicles
   end
 end
