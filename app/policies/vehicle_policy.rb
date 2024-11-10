@@ -31,10 +31,10 @@ class VehiclePolicy < ApplicationPolicy
   def user_owns_vehicle?
     vehicle.user_id == user.id
   end
-end
 
-class Scope < Scope
-  def resolve
-    scope.where(user_id: user.id)
+  class Scope < Scope
+    def resolve
+      scope.where(user:)
+    end
   end
 end

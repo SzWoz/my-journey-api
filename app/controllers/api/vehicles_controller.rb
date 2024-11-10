@@ -18,6 +18,7 @@ module Api
       if @vehicle.save
         render json: @vehicle, status: :created
       else
+        Rails.logger.error "Vehicle creation failed: #{@vehicle.errors.full_messages.join(', ')}"
         render json: { errors: @vehicle.errors.full_messages }, status: :unprocessable_entity
       end
     end
@@ -44,7 +45,7 @@ module Api
     end
 
     def vehicle_params
-      params.require(:vehicle).permit(:year, :manufacturer, :model, :version, :fuel_efficiency)
+      params.require(:vehicle).permit(:year, :manufacturer, :model, :version, :fuel_efficiency, :fuel_type)
     end
   end
 end
