@@ -11,7 +11,7 @@ module MyJourneyApi
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 6.1
 
-    config.api_only = true
+    config.api_only = false
 
     # Configuration for the application, engines, and railties goes here.
     #
