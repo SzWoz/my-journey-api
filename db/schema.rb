@@ -42,11 +42,12 @@ ActiveRecord::Schema.define(version: 2024_11_13_204659) do
   end
 
   create_table "passengers", force: :cascade do |t|
-    t.bigint "location_id", null: false
+    t.bigint "journey_id", null: false
     t.string "name"
+    t.decimal "cost", precision: 10, scale: 2
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["location_id"], name: "index_passengers_on_location_id"
+    t.index ["journey_id"], name: "index_passengers_on_journey_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -80,5 +81,5 @@ ActiveRecord::Schema.define(version: 2024_11_13_204659) do
   add_foreign_key "journeys", "users"
   add_foreign_key "journeys", "vehicles"
   add_foreign_key "locations", "journeys"
-  add_foreign_key "passengers", "locations"
+  add_foreign_key "passengers", "journeys"
 end
