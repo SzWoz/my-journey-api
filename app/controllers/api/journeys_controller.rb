@@ -10,7 +10,7 @@ module Api
 
       if journey.save
         locations_data = params[:locations]
-        JourneyService.new(journey, locations_data).process_locations
+        JourneyService.new(journey, locations_data).call
 
         render json: journey, include: { locations: {}, passengers: {} }, status: :created
       else
