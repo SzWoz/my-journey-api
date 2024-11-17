@@ -64,6 +64,7 @@ GEM
       public_suffix (>= 2.0.2, < 7.0)
     base64 (0.2.0)
     bcrypt (3.1.20)
+    bigdecimal (3.1.8)
     bindex (0.8.1)
     bootsnap (1.18.4)
       msgpack (~> 1.2)
@@ -81,6 +82,7 @@ GEM
     coderay (1.1.3)
     concurrent-ruby (1.3.4)
     crass (1.0.6)
+    csv (3.3.0)
     date (3.3.4)
     devise (4.9.4)
       bcrypt (~> 3.0)
@@ -113,6 +115,10 @@ GEM
     ffi (1.17.0-x86_64-linux-musl)
     globalid (1.2.1)
       activesupport (>= 6.1)
+    httparty (0.22.0)
+      csv
+      mini_mime (>= 1.0.0)
+      multi_xml (>= 0.5.2)
     i18n (1.14.5)
       concurrent-ruby (~> 1.0)
     jbuilder (2.12.0)
@@ -139,6 +145,8 @@ GEM
     mini_mime (1.1.5)
     minitest (5.25.1)
     msgpack (1.7.2)
+    multi_xml (0.7.1)
+      bigdecimal (~> 3.1)
     net-imap (0.4.16)
       date
       net-protocol
@@ -220,6 +228,9 @@ GEM
       actionpack (>= 5.2)
       railties (>= 5.2)
     rexml (3.3.7)
+    roo (2.10.1)
+      nokogiri (~> 1)
+      rubyzip (>= 1.3.0, < 3.0.0)
     rubyzip (2.3.2)
     sass-rails (6.0.0)
       sassc-rails (~> 2.1, >= 2.1.1)
@@ -309,9 +320,11 @@ DEPENDENCIES
   capybara (>= 3.26)
   devise
   devise-jwt
+  httparty
   jbuilder (~> 2.7)
   jsonapi-serializer
   listen (~> 3.3)
+  nokogiri
   pg
   pry
   pry-rails
@@ -320,6 +333,7 @@ DEPENDENCIES
   rack-cors
   rack-mini-profiler (~> 2.0)
   rails (~> 6.1.7, >= 6.1.7.8)
+  roo
   sass-rails (>= 6)
   selenium-webdriver (>= 4.0.0.rc1)
   spring
