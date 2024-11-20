@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  country: MyString
+  gasoline_95: 9.99
+  diesel: 9.99
+  lpg: 9.99
+
+two:
+  country: MyString
+  gasoline_95: 9.99
+  diesel: 9.99
+  lpg: 9.99

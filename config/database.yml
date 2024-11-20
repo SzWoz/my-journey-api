@@ -15,8 +15,9 @@ test:
   <<: *default
   database: myapp_test
 
+# change it when deployed
 production:
   <<: *default
-  database: myapp_production
-  username: <%= ENV['DATABASE_USERNAME'] %>
-  password: <%= ENV['DATABASE_PASSWORD'] %>
+  database: my_journey_development
+  username: postgres
+  password: password
