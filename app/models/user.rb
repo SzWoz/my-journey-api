@@ -7,6 +7,7 @@ class User < ApplicationRecord
   before_create :set_jti
 
   has_many :vehicles, dependent: :destroy
+  has_many :journeys, dependent: :destroy
 
   private
 

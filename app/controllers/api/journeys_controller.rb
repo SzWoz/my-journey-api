@@ -1,9 +1,10 @@
 module Api
   class JourneysController < ApplicationController
+    before_action :authenticate_user!
     before_action :set_journey, only: [:update]
 
     def index
-      journeys = Journey.includes(:locations, :passengers)
+      journeys = current_user.journeys.includes(:locations, :passengers)
       render json: journeys, include: { locations: {}, passengers: {} }
     end
 
